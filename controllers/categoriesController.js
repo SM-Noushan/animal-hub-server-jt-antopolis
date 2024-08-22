@@ -7,6 +7,15 @@ const getAllCategories = async (req, res) => {
   res.json(categories);
 };
 
+// retrieve all categories
+const addCategory = async (req, res) => {
+  const newCategory = req.body;
+  const categoryCollection = await categoriesDB();
+  const result = await categoryCollection.insertOne(newCategory);
+  res.json(result);
+};
+
 module.exports = {
   getAllCategories,
+  addCategory,
 };
