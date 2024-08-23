@@ -10,6 +10,15 @@ const getAllAnimals = async (req, res) => {
   res.json(animals);
 };
 
+// add new animal
+const addAnimal = async (req, res) => {
+  const newAnimal = req.body;
+  const animalCollection = await animalsDB();
+  const result = await animalCollection.insertOne(newAnimal);
+  res.json(result);
+};
+
 module.exports = {
   getAllAnimals,
+  addAnimal,
 };

@@ -7,7 +7,7 @@ const getAllCategories = async (req, res) => {
   res.json(categories);
 };
 
-// retrieve all categories
+// add new category
 const addCategory = async (req, res) => {
   const newCategory = req.body;
   const categoryCollection = await categoriesDB();
